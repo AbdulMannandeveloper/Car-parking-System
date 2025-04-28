@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login/Signup - RFID Car Parking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_for_login_signup.css') }}">
+    <script src="{{ url_for('static', filename='script_sign_up_log.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>RFID Car Parking System</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="form-section" id="login-form">
+                <h2>Login</h2>
+                <form action="{{ url_for('admin_login') }}" method="POST">
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" name="username" required>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="showSignupForm()">Sign up here</a></p>
+            </div>
+            <div class="form-section" id="signup-form" style="display: none;">
+                <h2>Sign Up</h2>
+                <form action="{{ url_for('signup') }}" method="POST">
+                    <label for="signup-username">Username:</label>
+                    <input type="text" id="signup-username" name="username" required>
+                    <label for="signup-name">Name:</label>
+                    <input type="text" id="signup-name" name="name" required>
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="#" onclick="showLoginForm()">Login here</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

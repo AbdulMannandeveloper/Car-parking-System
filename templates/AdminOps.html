@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Operations - RFID Car Parking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+    <script>
+        function toggleStudentFields() {
+            var userType = document.getElementById('user-type').value;
+            var studentFields = document.getElementById('student-fields');
+            if (userType === 'Student') {
+                studentFields.style.display = 'block';
+            } else {
+                studentFields.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Admin Operations</h1>
+    </header>
+    <main>
+        <div class="sidebar">
+            <ul>
+                <li><a href="{{ url_for('vehicles_in_parking') }}">View Vehicles in Parking</a></li>
+                <li><a href="{{ url_for('vehicles_entered_today') }}">View Vehicles Entered Today</a></li>
+                <li><a href="{{ url_for('hour_rate') }}">View Current Hour Rate</a></li>
+                <li><a href="{{ url_for('add_user') }}">Add a User</a></li>
+                <li><a href="{{ url_for('update_balance') }}">Update Balance</a></li>
+                <li><a href="{{ url_for('update_hour_rate') }}">Update Hour Rate</a></li>
+                <li><a href="{{ url_for('admin_login') }}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+</body>
+</html>

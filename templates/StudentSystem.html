@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RFID Car Parking System - Staff/Faculty</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_for_student.css') }}">
+    <script src="{{ url_for('static', filename='script_for_student.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>RFID Car Parking System - Student</h1>
+    </header>
+    <main>
+        <div class="info-container">
+            <h2>Category: <span id="category">Student</span></h2>
+            <p>Name: <span id="name">__</span></p>
+            <p>Entrance Time: <span id="entrance-time">__</span></p>
+            <p>Exit Time: <span id="exit-time">__</span></p>
+            <p>Current Balance: <span id="balance">__</span></p>
+            <p>Vehicle Name: <span id="vehicle-name">__</span></p>
+            <p>Semester: <span id="semester">__</span></p>
+            <p>Department: <span id="department">__</span></p>
+
+        </div>
+        <div class="scanner-container">
+            <label for="rfid-tag">RFID Tag:</label>
+            <input type="text" id="rfid-tag" placeholder="Scan RFID Tag" autofocus>
+        </div>
+    </main>
+</body>
+</html>

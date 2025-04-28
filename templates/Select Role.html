@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RFID Car Parking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_for_select_role.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>RFID Car Parking System</h1>
+    </header>
+    <main>
+        <div class="dropdown-container">
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Menu</a>
+                        <ul class="dropdown">
+                            <li><a href="/admin_login">Admin</a></li>
+                            <li><a href="/student">Student System</a></li>
+                            <li><a href="/staff_faculty">Staff/Faculty System</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+</body>
+</html>

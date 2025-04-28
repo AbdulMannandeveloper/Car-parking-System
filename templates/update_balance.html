@@ -1,0 +1,14 @@
+{% extends "AdminOps.html" %}
+
+{% block content %}
+<h2>Update Balance</h2>
+<form action="{{ url_for('update_balance') }}" method="POST">
+    <label for="rfid-tag">RFID Tag:</label>
+    <input type="text" id="rfid-tag" name="rfid_tag" value="{{ rfid_tag }}" readonly>
+
+    <label for="amount">Amount:</label>
+    <input type="number" step="0.01" id="amount" name="amount" required>
+
+    <button type="submit">Update Balance</button>
+</form>
+{% endblock %}

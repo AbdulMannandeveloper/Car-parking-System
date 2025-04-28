@@ -1,0 +1,11 @@
+{% extends "AdminOps.html" %}
+
+{% block content %}
+<h2>Update Hour Rate</h2>
+<form action="{{ url_for('update_hour_rate') }}" method="POST">
+    <label for="hour-rate">New Hour Rate:</label>
+    <input type="number" step="0.01" id="hour-rate" name="hour_rate" required>
+
+    <button type="submit">Update Hour Rate</button>
+</form>
+{% endblock %}
